@@ -124,3 +124,5 @@ dist
 
 # Databases
 *.db3
+
+build
