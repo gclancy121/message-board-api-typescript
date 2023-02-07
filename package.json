@@ -7,9 +7,11 @@
     "helmet": "^6.0.1",
     "jsonwebtoken": "^9.0.0",
     "knex": "^2.4.2",
+    "rimraf": "^3.0.2",
     "sqlite3": "^5.1.4"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/node": "^16.18.12",
     "cross-env": "^7.0.3",
@@ -19,9 +21,9 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "compile": "tsc -w",
+    "compile": "rimraf build && npx tsc",
     "start": "node ./build/index.js",
-    "server": "nodemon ./build/index.js",
+    "dev": "npx tsc -w & nodemon ./build/index.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
     "rollback": "knex migrate:rollback",
