@@ -22,7 +22,7 @@
   },
   "scripts": {
     "compile": "rimraf build && npx tsc",
-    "start": "node ./build/index.js",
+    "start": "node ./build/src/index.js",
     "dev": "npx tsc -w & nodemon ./build/index.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
