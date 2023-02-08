@@ -5,6 +5,7 @@ import helmet from 'helmet';
 
 //Router Imports
 import {complaintRouter} from './complaints/complaintRouter';
+import { commentsRouter } from "./comments/commentsRouter";
 
 //Server setup
 const server:Express = express();
@@ -14,5 +15,6 @@ server.use(express.json());
 
 //Server routers
 server.use('/complaints', complaintRouter);
+server.use('/comments', commentsRouter);
 
 export default server;
