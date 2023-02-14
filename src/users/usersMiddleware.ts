@@ -110,12 +110,6 @@ async function checkResetIsValid(req:Request, res:Response, next:NextFunction) {
         res.status(400).json({message: "Answer the question. The question alone is meaningless."})
         return;
     }
-    interface User {
-        user_id: number;
-        username: string;
-        security_question: string;
-        security_question_answer: string;
-    }
     await Users.findByUsername(username).then((result: User | null) => {
         if (result == null) {
             res.status(400).json({message: "This user doesn't exist. Go register!"});
@@ -134,6 +128,16 @@ async function checkResetIsValid(req:Request, res:Response, next:NextFunction) {
         }
     })
 }
+interface User {
+    user_id: number;
+    username: string;
+    password: string;
+    about_me: string;
+    profile_picture: string;
+    fav_waifu: string;
+    security_question: string;
+    security_question_answer: string;
+}
 export {
     checkUsernameTaken,
     checkPayload,
@@ -142,4 +146,5 @@ export {
     checkResetIsValid,
     checkUpdateOkay,
     checkNewPasswordValid,
+    User
 }
