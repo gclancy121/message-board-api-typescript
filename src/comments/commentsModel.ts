@@ -5,7 +5,7 @@ function findById(id:string) {
 }
 
 async function addComment(comment:string) {
-    const [id] = await db('comments').inset(comment);
+    const [id] = await db('comments').insert(comment);
     return findById(id);
 }
 
