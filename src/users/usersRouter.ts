@@ -28,7 +28,7 @@ router.get('/byid/:id', (req:Request, res:Response, next:NextFunction) => {
     }).catch((err:Error) => next(err));
 })
 
-router.get('/username', (req:Request, res:Response, next:NextFunction) => {
+router.get('/:username', (req:Request, res:Response, next:NextFunction) => {
     const username:string = req.params.username;
     Users.findByUsername(username).then((result:any) => {
         res.status(200).json(result);
