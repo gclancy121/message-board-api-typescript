@@ -1,5 +1,5 @@
 //Server bones
-import express, { Express } from "express";
+import express, { Express, ErrorRequestHandler } from "express";
 import cors from 'cors';
 import helmet from 'helmet';
 
@@ -20,5 +20,10 @@ server.use('/complaints', complaintRouter);
 server.use('/comments', commentsRouter);
 server.use('/users', usersRouter);
 server.use('/posts', postsRouter);
+
+const errorHandler:ErrorRequestHandler = (err, req, res, next) => {
+    res.status(err.status || 500).json({message: err.message, stack: err.stack});
+}
+server.use(errorHandler);
 
 export default server;
